@@ -22,6 +22,8 @@ import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoRetireeFirst from '@/images/logos/download.png'
+import logoPilot from '@/images/logos/LogoPilot.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
@@ -108,11 +110,24 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+
 function Newsletter() {
+  const [email, setEmail] = useState('');
+  const router = useRouter();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    
+    // Navigate to thank-you page with email as query parameter
+    router.push(`/thank-you?email=${email}`);
+    };
   return (
     <form
-      action="/thank-you"
+      action="/thank-you" // Removed as form submission is handled here
       className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
+      onSubmit={handleSubmit}
     >
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <MailIcon className="h-6 w-6 flex-none" />
@@ -127,6 +142,8 @@ function Newsletter() {
           placeholder="Email address"
           aria-label="Email address"
           required
+          value = {email}
+          onChange={(event)=> setEmail(event.target.value)}
           className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
         />
         <Button type="submit" className="ml-4 flex-none">
@@ -140,35 +157,21 @@ function Newsletter() {
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
+      company: 'RetireeFirst',
+      title: 'IT Intern',
+      logo: logoRetireeFirst,
+      start: '2022',
       end: {
-        label: 'Present',
+        label: '2023',
         dateTime: new Date().getFullYear(),
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
-    },
-    {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
-    },
-    {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      company: 'Pilot Services',
+      title: 'Maintenance Worker',
+      logo: logoPilot,
+      start: '2020',
+      end: '2022',
     },
   ]
 
@@ -182,7 +185,7 @@ function Resume() {
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
+              <Image src={role.logo} alt="" className="h-7 w-7 rounded-full" unoptimized />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
@@ -264,7 +267,7 @@ export default function Home({ articles }) {
     <Container className="mt-9">
       <div className="max-w-2xl">
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-          Aspiring Full-Stack Entrepreneur
+          Aspiring Full-Stack Engineer
         </h1>
         <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
           I'm Jacob, a software engineer who is passionate about building efficient and scalable applications. I'm also an aspiring entrepreneur who is working hard to achieve my goals. I'm currently based in New Jersey, and I'm always looking for new opportunities to learn and grow.

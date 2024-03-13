@@ -1,8 +1,10 @@
 import Head from 'next/head'
-
+import { useRouter } from 'next/router'
 import { SimpleLayout } from '@/components/SimpleLayout'
 
 export default function ThankYou() {
+  const router = useRouter()
+  const email = new URLSearchParams(router.query).get('email')
   return (
     <>
       <Head>
@@ -14,7 +16,7 @@ export default function ThankYou() {
       </Head>
       <SimpleLayout
         title="Thanks for subscribing."
-        intro="I’ll send you an email any time I publish a new blog post, release a new project, or have anything interesting to share that I think you’d want to hear about. You can unsubscribe at any time, no hard feelings."
+        intro={`We've sent a confirmation email to ${email}. You'll be notified when I publish something new, and you can unsubscribe at any time, no hard feelings.`}
       />
     </>
   )
