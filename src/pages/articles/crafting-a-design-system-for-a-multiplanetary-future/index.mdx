@@ -1,0 +1,32 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/future/image'
+import designSystem from './mspreview.png'
+
+export const meta = {
+  author: 'Jacob Delega',
+  date: '2024-03-12',
+  title: 'Very first blog',
+  description:
+    'Today we accomplished the knowledge to successfully publish to a personal blog with Next / TailWindCSS.',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+As I progress with learning NextJS, React, TailWindCSS, and web development as a whole. I will aim to actively keep up to date with my personal blog to look back at. 
+
+<Image src={designSystem} alt="" />
+
+As you can see here this is a very short preview of a business model that I have been working on for a venture event at Rowan University. 
+
+```c
+<div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
+        <div className="flex max-w-3xl flex-col space-y-16">
+                {articles.map((article) => (
+                <Article key={article.slug} article={article} />
+        ))}
+        </div>
+</div>
+```
+
+Current time of writing this I'm very new to NextJS and javascript in a whole... I came from strictly python and some flask development, long story short lets hope when I look back at this I can look at this with flying colors.
+
