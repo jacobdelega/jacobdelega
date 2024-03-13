@@ -13,11 +13,11 @@ import {
   LinkedInIcon,
   FiverIcon,
 } from '@/components/SocialIcons'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
+import image1 from '@/images/photos/Image-1.jpg'
+import image2 from '@/images/photos/Image-2.jpg'
+import image3 from '@/images/photos/Image-3.jpg'
+import image4 from '@/images/photos/Image-4.jpg'
+import image5 from '@/images/photos/Image-5.jpg'
 import logoAirbnb from '@/images/logos/airbnb.svg'
 import logoFacebook from '@/images/logos/facebook.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
@@ -27,7 +27,6 @@ import logoPilot from '@/images/logos/LogoPilot.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
-
 function MailIcon(props) {
   return (
     <svg
@@ -215,7 +214,7 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button href="https://www.dropbox.com/scl/fi/igylqfewxr04fhv7wdl9j/jacobdelega.pdf?rlkey=hbjk8fc2mrj5c7ewyvkalev78&dl=0" download='jacob_delega.pdf' variant="secondary" className="group mt-6 w-full">
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>

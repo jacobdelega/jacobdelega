@@ -9,6 +9,7 @@ import {
   InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
+  FiverIcon,
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
 
@@ -41,7 +42,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About - Spencer Sharp</title>
+        <title>About - Jacob Delega</title>
         <meta
           name="description"
           content="I’m Spencer Sharp. I live in New York City, where I design the future."
@@ -60,59 +61,71 @@ export default function About() {
             </div>
           </div>
           <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Spencer Sharp. I live in New York City, where I design the
-              future.
+            <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+              I'm Jacob Delega
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I’ve loved making things for as long as I can remember, and
-                wrote my first program when I was 6 years old, just two weeks
-                after my mom brought home the brand new Macintosh LC 550 that I
-                taught myself to type on.
+                I spent my early childhood always wondering how things worked
+                especially when it came to software. This curiosity led me to do
+                a bunch of tinkering with anything I could get my hands on. This
+                showed my something about myself, I was a problem solver.
               </p>
               <p>
-                The only thing I loved more than computers as a kid was space.
-                When I was 8, I climbed the 40-foot oak tree at the back of our
-                yard while wearing my older sister’s motorcycle helmet, counted
-                down from three, and jumped — hoping the tree was tall enough
-                that with just a bit of momentum I’d be able to get to orbit.
+                A few years later, my curiosity about the power behind software
+                development went into overdrive. I dove headfirst, teaching
+                myself how to reverse engineer a video game and build a website
+                from scratch! That's when the spark ignited - I knew I had to
+                become a software engineer and turn this passion into a career.
               </p>
               <p>
-                I spent the next few summers indoors working on a rocket design,
-                while I recovered from the multiple surgeries it took to fix my
-                badly broken legs. It took nine iterations, but when I was 15 I
-                sent my dad’s Blackberry into orbit and was able to transmit a
-                photo back down to our family computer from space.
-              </p>
-              <p>
-                Today, I’m the founder of Planetaria, where we’re working on
-                civilian space suits and manned shuttle kits you can assemble at
-                home so that the next generation of kids really <em>can</em>{' '}
-                make it to orbit — from the comfort of their own backyards.
+                My journey as a software engineer has ignited a hunger for
+                continuous learning and growth. I'm passionate about web
+                application development and design systems, and I'm constantly
+                seeking opportunities to expand my skillset. My experience
+                includes working with various technologies and frameworks like
+                React, Next.js, Flask, and Django. I'm eager to tackle new
+                challenges and embrace any opportunity that allows me to
+                contribute to innovative projects.
               </p>
             </div>
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="#" icon={TwitterIcon}>
+              {/* <SocialLink href="#" icon={TwitterIcon}>
                 Follow on Twitter
               </SocialLink>
               <SocialLink href="#" icon={InstagramIcon} className="mt-4">
                 Follow on Instagram
-              </SocialLink>
-              <SocialLink href="#" icon={GitHubIcon} className="mt-4">
+              </SocialLink> */}
+              <SocialLink
+                href="https://github.com/jacobdelega"
+                icon={GitHubIcon}
+                className="mt-4"
+              >
                 Follow on GitHub
               </SocialLink>
-              <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+              <SocialLink
+                href="https://linkedin.com/in/jacobdelega"
+                icon={LinkedInIcon}
+                className="mt-4"
+              >
                 Follow on LinkedIn
               </SocialLink>
               <SocialLink
-                href="mailto:spencer@planetaria.tech"
+                href="https://www.fiverr.com/jacob_delega?public_mode=true"
+                aria-label="Follow on Fiver"
+                icon={FiverIcon}
+                className="mt-4"
+              >
+                Follow on Fiver
+              </SocialLink>
+              <SocialLink
+                href="mailto:jacobdelega@gmail.com"
                 icon={MailIcon}
                 className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
               >
-                spencer@planetaria.tech
+                jacobdelega@gmail.com
               </SocialLink>
             </ul>
           </div>
