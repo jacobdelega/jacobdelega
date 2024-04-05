@@ -3,6 +3,20 @@ import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
 
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer'
+
+import { Button } from "@/components/ui/button"
+
+
 import { Container } from '@/components/Container'
 import {
   TwitterIcon,
@@ -62,32 +76,45 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I'm Jacob Delega
+              Workout Programs
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                I spent my early childhood always wondering how things worked
-                especially when it came to software. This curiosity led me to do
-                a bunch of tinkering with anything I could get my hands on. This
-                showed my something about myself, I was a problem solver.
+                Over the years I've developed a passion for fitness and over
+                time I've been able to develop a few workout programs that I
+                would like to share with others!
               </p>
-              <p>
-                A few years later, my curiosity about the power behind software
-                development went into overdrive. I dove headfirst, teaching
-                myself how to reverse engineer a video game and build a website
-                from scratch! That's when the spark ignited - I knew I had to
-                become a software engineer and turn this passion into a career.
-              </p>
-              <p>
-                My journey as a software engineer has ignited a hunger for
-                continuous learning and growth. I'm passionate about web
-                application development and design systems, and I'm constantly
-                seeking opportunities to expand my skillset. My experience
-                includes working with various technologies and frameworks like
-                React, Next.js, Flask, and Django. I'm eager to tackle new
-                challenges and embrace any opportunity that allows me to
-                contribute to innovative projects.
-              </p>
+              <div className="flex flex-col justify-center">
+                <button className="mb-2 h-12 rounded-md border border-blue-400 align-middle">
+                  {' '}
+                  4 Week ( Beginner )
+                </button>
+                <button className="mb-2 h-12 rounded-md border border-blue-400 align-middle">
+                  {' '}
+                  8 Week ( Beginner / Intermediate )
+                </button>
+                <button className="h-12 rounded-md border border-blue-400 align-middle">
+                  {' '}
+                  12 Week ( Intermediate )
+                </button>
+              </div>
+              <Drawer>
+                <DrawerTrigger>Open</DrawerTrigger>
+                <DrawerContent>
+                  <DrawerHeader>
+                    <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+                    <DrawerDescription>
+                      This action cannot be undone.
+                    </DrawerDescription>
+                  </DrawerHeader>
+                  <DrawerFooter>
+                    <Button>Submit</Button>
+                    <DrawerClose>
+                      <Button variant="outline">Cancel</Button>
+                    </DrawerClose>
+                  </DrawerFooter>
+                </DrawerContent>
+              </Drawer>
             </div>
           </div>
           <div className="lg:pl-20">
