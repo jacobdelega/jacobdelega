@@ -1,5 +1,5 @@
 {
-  "name": "tailwindui-template",
+  "name": "Jacob Delega's - Personal Website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -37,5 +37,9 @@
     "eslint-config-next": "12.2.5",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.11"
-  }
+  },
+  "description": "",
+  "main": "postcss.config.js",
+  "author": "",
+  "license": "ISC"
 }

@@ -14,8 +14,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 
-import { Button } from "@/components/ui/button"
-
+import { Button } from '@/components/ui/button'
 
 import { Container } from '@/components/Container'
 import {
@@ -25,7 +24,7 @@ import {
   LinkedInIcon,
   FiverIcon,
 } from '@/components/SocialIcons'
-import portraitImage from '@/images/portrait.jpg'
+import portraitImage from '@/images/photos/600_deadlift.jpg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -68,7 +67,7 @@ export default function About() {
             <div className="max-w-xs px-2.5 lg:max-w-none">
               <Image
                 src={portraitImage}
-                alt=""
+                alt="Jacob Delega deadlifting 600 pounds at rowan university for a personal record."
                 sizes="(min-width: 1024px) 32rem, 20rem"
                 className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
               />
@@ -84,25 +83,32 @@ export default function About() {
                 time I've been able to develop a few workout programs that I
                 would like to share with others!
               </p>
-              <div className="flex flex-col justify-center">
-                <button className="mb-2 h-12 rounded-md border border-blue-400 align-middle">
-                  {' '}
-                  4 Week ( Beginner )
-                </button>
-                <button className="mb-2 h-12 rounded-md border border-blue-400 align-middle">
-                  {' '}
-                  8 Week ( Beginner / Intermediate )
-                </button>
-                <button className="h-12 rounded-md border border-blue-400 align-middle">
-                  {' '}
-                  12 Week ( Intermediate )
-                </button>
-              </div>
               <Drawer>
-                <DrawerTrigger>Open</DrawerTrigger>
+                <div className="flex flex-col justify-center">
+                  <DrawerTrigger>
+                    <button className="dark:hover:bg-slate-700 s:w-2/3 w-full mb-2 h-12 rounded-md border border-blue-400 align-middle">
+                      {' '}
+                      4 Week ( Strength )
+                    </button>
+                  </DrawerTrigger>
+                  <DrawerTrigger>
+                    <button className="dark:hover:bg-slate-700 s:w-2/3 w-full mb-2 h-12 rounded-md border border-blue-400 align-middle">
+                      {' '}
+                      8 Week ( Powerbuilding )
+                    </button>
+                  </DrawerTrigger>
+                  <DrawerTrigger>
+                    <button className="dark:hover:bg-slate-700 s:w-2/3 w-full mb-2 h-12 rounded-md border border-blue-400 align-middle">
+                      {' '}
+                      12 Week ( Powerbuilding )
+                    </button>
+                  </DrawerTrigger>
+                </div>
                 <DrawerContent>
                   <DrawerHeader>
-                    <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+                    <DrawerTitle className="text-white">
+                      Are you absolutely sure?
+                    </DrawerTitle>
                     <DrawerDescription>
                       This action cannot be undone.
                     </DrawerDescription>
