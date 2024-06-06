@@ -8,14 +8,27 @@ import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
+import logoCamera from '@/images/logos/Camera.svg'
 
 const projects = [
   {
     name: 'OMM Study Bank',
     description:
       'A testing web application for the OMM Study Bank, a resource for osteopathic medical students.',
-    link: { href: 'https://github.com/jacobdelega/OMMProject', label: 'OMMProject' },
+    link: {
+      href: 'https://github.com/jacobdelega/OMMProject',
+      label: 'OMMProject',
+    },
     logo: logoPlanetaria,
+  },
+  {
+    name: 'MarketSimplified',
+    description: 'A landing page tailored to a future web application in mind.',
+    link: {
+      href: 'https://market-simplified.vercel.app/',
+      label: 'MarketSimplified',
+    },
+    logo: logoCamera,
   },
 ]
 
@@ -35,10 +48,7 @@ export default function Projects() {
     <>
       <Head>
         <title>Projects - Jacob Delega</title>
-        <meta
-          name="description"
-          content="Thing's I've been working on."
-        />
+        <meta name="description" content="Thing's I've been working on." />
       </Head>
       <SimpleLayout
         title="Things I’ve made trying to make an effect"
@@ -54,7 +64,7 @@ export default function Projects() {
                 <Image
                   src={project.logo}
                   alt=""
-                  className="h-8 w-8"
+                  className="h-8 w-8 rounded-full"
                   unoptimized
                 />
               </div>

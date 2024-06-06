@@ -255,7 +255,7 @@ export default function Home({ articles }) {
     {/* Head section refers to metadeta and tab title. */}
     <Head>
       <title>
-        Jacob Delega - Software Engineer, and soon to be founder.
+        Jacob Delega - Software Engineer.
       </title>
       <meta
         name="description"
