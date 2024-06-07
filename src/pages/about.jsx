@@ -24,7 +24,7 @@ import {
   LinkedInIcon,
   FiverIcon,
 } from '@/components/SocialIcons'
-import portraitImage from '@/images/photos/600_deadlift.jpg'
+import portraitImage from '@/images/photos/standing_desk.jpeg'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -75,15 +75,13 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              Workout Programs
+              About Me
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
               <p>
-                Over the years I've developed a passion for fitness and over
-                time I've been able to develop a few workout programs that I
-                would like to share with others!
+              I'm Jacob Delega, a passionate software engineer who enjoys problem-solving and building user-friendly solutions. My goals as a software engineer is to become an expert in the MERN stack utilizing NextJS.
               </p>
-              <Drawer>
+              {/* <Drawer>
                 <div className="flex flex-col justify-center">
                   <DrawerTrigger>
                     <button className="dark:hover:bg-slate-700 s:w-2/3 w-full mb-2 h-12 rounded-md border border-blue-400 align-middle">
@@ -120,7 +118,7 @@ export default function About() {
                     </DrawerClose>
                   </DrawerFooter>
                 </DrawerContent>
-              </Drawer>
+              </Drawer> */}
             </div>
           </div>
           <div className="lg:pl-20">
