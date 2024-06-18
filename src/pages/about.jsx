@@ -58,7 +58,7 @@ export default function About() {
         <title>About - Jacob Delega</title>
         <meta
           name="description"
-          content="I’m Spencer Sharp. I live in New York City, where I design the future."
+          content="I’m Jacob Delega. I live in New Jersey, where I build the future applications."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
