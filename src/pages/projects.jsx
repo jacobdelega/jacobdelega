@@ -9,6 +9,7 @@ import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 import logoPlanetaria from '@/images/logos/planetaria.svg'
 import logoCamera from '@/images/logos/Camera.svg'
+import logoJBlog from '@/images/logos/jblog.jpg'
 
 const projects = [
   {
@@ -29,6 +30,15 @@ const projects = [
       label: 'MarketSimplified',
     },
     logo: logoCamera,
+  },
+  {
+    name: 'JBlog',
+    description: 'A Full stack blog application built with NextJS, NextAuth, MongoDB with Prisma.',
+    link: {
+      href: 'https://jd-blog.vercel.app/',
+      label: 'JBlog',
+    },
+    logo: logoJBlog,
   },
 ]
 
