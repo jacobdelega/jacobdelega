@@ -214,7 +214,7 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="https://www.dropbox.com/scl/fi/805ms4zfklra9g8z1jk76/JDelega.pdf?rlkey=xkf05ycyco6mrpgkgl7ut1cre&st=n40jhov2&dl=0" download='jacob_delega.pdf' variant="secondary" className="group mt-6 w-full">
+      <Button href="https://www.dropbox.com/scl/fi/mms3ah84t1js29j10k1j2/jacobdelega.pdf?rlkey=viuim0b62lotbn52ggnr3fkxt&st=e5ku59vv&dl=0" download='jacob_delega.pdf' variant="secondary" className="group mt-6 w-full">
         View Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
