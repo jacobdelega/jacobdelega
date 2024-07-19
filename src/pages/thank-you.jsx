@@ -8,7 +8,7 @@ export default function ThankYou() {
   return (
     <>
       <Head>
-        <title>You’re subscribed - Spencer Sharp</title>
+        <title>Email subscribed - Jacob Delega</title>
         <meta
           name="description"
           content="Thanks for subscribing to my newsletter."
@@ -16,7 +16,7 @@ export default function ThankYou() {
       </Head>
       <SimpleLayout
         title="Thanks for subscribing."
-        intro={`We've sent a confirmation email to ${email}. You'll be notified when I publish something new, and you can unsubscribe at any time, no hard feelings.`}
+        intro={`I've saved ${email} to my email list. You'll be notified when I publish something new, and you can unsubscribe at any time.`}
       />
     </>
   )
