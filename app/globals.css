@@ -1,0 +1,659 @@
+@import "tailwindcss";
+
+@theme {
+  --color-page: #ffffff;
+  --color-soft: #f4f5f7;
+  --color-ink: #0e1020;
+  --color-muted: #5c6072;
+  --color-line: #e5e7ec;
+  --color-coral: #ff5b37;
+  --color-coral-tint: #fff1ec;
+  --color-blue: #3366ff;
+  --color-blue-tint: #eef2ff;
+  --color-violet: #7b61ff;
+  --color-night: #15103a;
+  --color-live: #16b364;
+  --font-display: var(--font-funnel-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-funnel-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  background: var(--color-page);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+::selection {
+  background: var(--color-coral);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--color-ink);
+  color: #fff;
+  padding: 0.95rem 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: transform 150ms, background-color 150ms;
+}
+.btn:hover {
+  background: #262a44;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+.btn-light {
+  background: #fff;
+  color: var(--color-ink);
+}
+.btn-light:hover {
+  background: #e9eaf0;
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  padding: 0.8rem 1.3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background-color 150ms, color 150ms;
+}
+
+/* Live status dot */
+.live-dot {
+  position: relative;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--color-live);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .live-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--color-live);
+    animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+/* Hero: the headline carries small pictures of the work. */
+.word {
+  display: inline-block;
+}
+.pill {
+  display: inline-block;
+  position: relative;
+  height: 0.78em;
+  width: 1.56em;
+  margin: 0 0.06em;
+  border-radius: 999px;
+  overflow: hidden;
+  vertical-align: -0.06em;
+  box-shadow: 0 0.06em 0.18em rgb(14 16 32 / 0.18);
+  transition: transform 250ms cubic-bezier(0.2, 0.9, 0.3, 1.3);
+}
+.pill:hover {
+  transform: rotate(0deg) scale(1.12) !important;
+}
+.pill-flow {
+  background: var(--color-night);
+}
+.pill svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Websites pill: a browser window on coral that builds a page, then clears and repeats. */
+.pill-browser {
+  background: var(--color-coral);
+}
+.pb {
+  transform-box: fill-box;
+  transform-origin: left center;
+}
+.pb-3 {
+  transform-origin: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pb {
+    animation: pb-build 4.4s cubic-bezier(0.2, 0.8, 0.2, 1) 1.1s infinite both;
+  }
+  .pb-2 {
+    animation-delay: 1.35s;
+  }
+  .pb-3 {
+    animation-name: pb-pop;
+    animation-delay: 1.6s;
+  }
+}
+@keyframes pb-build {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  12%,
+  82% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  92%,
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+@keyframes pb-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  9% {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+  15%,
+  82% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  92%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Apps pill: the pill is a switch that flips on, holds, and flips back. */
+.sw-track {
+  position: absolute;
+  inset: 0;
+  background: var(--color-blue);
+}
+.sw-knob {
+  position: absolute;
+  top: 0.08em;
+  left: 0.08em;
+  display: grid;
+  place-items: center;
+  width: 0.62em;
+  height: 0.62em;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-blue);
+  box-shadow: 0 0.02em 0.06em rgb(14 16 32 / 0.3);
+  transform: translateX(0.78em);
+}
+.sw-knob svg {
+  width: 52%;
+  height: 52%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sw-track {
+    animation: sw-track 3.6s ease 1.1s infinite both;
+  }
+  .sw-knob {
+    animation: sw-knob 3.6s cubic-bezier(0.5, 1.5, 0.45, 1) 1.1s infinite both;
+  }
+  .sw-knob svg {
+    animation: sw-check 3.6s ease 1.1s infinite both;
+  }
+}
+@keyframes sw-track {
+  0%,
+  30% {
+    background: #cfd3df;
+  }
+  40%,
+  86% {
+    background: var(--color-blue);
+  }
+  96%,
+  100% {
+    background: #cfd3df;
+  }
+}
+@keyframes sw-knob {
+  0%,
+  30% {
+    transform: translateX(0);
+  }
+  42%,
+  86% {
+    transform: translateX(0.78em);
+  }
+  96%,
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes sw-check {
+  0%,
+  36% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  44%,
+  84% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+.pill-dots {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12em;
+}
+.pill-flow i {
+  width: 0.13em;
+  height: 0.13em;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.35);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pill-flow i {
+    animation: blink 1.5s infinite;
+  }
+  .pill-flow i:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+  .pill-flow i:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+}
+@keyframes blink {
+  0%,
+  60%,
+  100% {
+    background: rgb(255 255 255 / 0.35);
+  }
+  20% {
+    background: var(--color-coral);
+    box-shadow: 0 0 0.12em var(--color-coral);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: calc(var(--d, 0) * 55ms);
+  }
+  .pop {
+    animation: pop 600ms cubic-bezier(0.2, 0.9, 0.3, 1.4) both;
+    animation-delay: calc(var(--d, 0) * 55ms + 120ms);
+  }
+  .fade-in {
+    animation: rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: 650ms;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.45em);
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4) rotate(-12deg);
+  }
+}
+
+/* Product screenshots settle flat as they scroll in. */
+.browser {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgb(14 16 32 / 0.08),
+    0 24px 48px -16px rgb(14 16 32 / 0.28);
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .settle {
+      transform-origin: 50% 100%;
+      animation: settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+  }
+}
+@keyframes settle {
+  from {
+    transform: perspective(1600px) rotateX(16deg) translateY(48px) scale(0.94);
+    opacity: 0.4;
+  }
+}
+
+/* Automation workflow: a pulse runs through the steps. */
+.flow {
+  position: relative;
+}
+.flow-line {
+  position: absolute;
+  left: 2.05rem;
+  top: 2rem;
+  bottom: 2rem;
+  width: 2px;
+  background: rgb(255 255 255 / 0.14);
+}
+.flow-dot {
+  position: absolute;
+  left: calc(2.05rem - 5px);
+  top: 2rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  box-shadow: 0 0 16px 4px rgb(255 91 55 / 0.55);
+}
+.flow-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  background: rgb(255 255 255 / 0.04);
+  padding: 1rem 1.25rem 1rem 1rem;
+  font-weight: 600;
+}
+.flow-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  background: #2a2361;
+  font-size: 0.85rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .flow-dot {
+    animation: travel 4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+  .flow-node {
+    animation: lit 4s infinite;
+    animation-delay: calc(var(--i) * 0.95s + 0.15s);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-dot {
+    display: none;
+  }
+}
+@keyframes travel {
+  0% {
+    top: 2rem;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 2rem - 12px);
+    opacity: 0;
+  }
+}
+@keyframes lit {
+  0%,
+  22%,
+  100% {
+    border-color: rgb(255 255 255 / 0.12);
+    background: rgb(255 255 255 / 0.04);
+  }
+  6% {
+    border-color: rgb(255 91 55 / 0.9);
+    background: rgb(255 91 55 / 0.14);
+  }
+}
+
+/* Success check */
+@media (prefers-reduced-motion: no-preference) {
+  .check-draw {
+    stroke-dasharray: 30;
+    animation: draw 500ms 150ms ease-out both;
+  }
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: 30;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Hidden field that only bots fill in. */
+.hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Pricing: a light that follows the pointer across a card. */
+.spotlight {
+  position: relative;
+  isolation: isolate;
+  transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 300ms;
+}
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 0%), var(--spot), transparent 65%);
+  opacity: 0;
+  transition: opacity 300ms;
+  pointer-events: none;
+}
+.spotlight:hover::before {
+  opacity: 1;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .spotlight:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 56px -28px rgb(14 16 32 / 0.35);
+  }
+}
+
+@keyframes week-fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.week-fill {
+  animation: week-fill linear both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .swap-in {
+    animation: swap-in 350ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+  .faq[open] .faq-body {
+    animation: swap-in 300ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+}
+@keyframes swap-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Blinking caret after the typed example idea. */
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: currentColor;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .caret {
+    animation: caret 1s steps(1) infinite;
+  }
+}
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Contact: a letter with blanks to fill in. */
+.letter {
+  border-radius: 28px;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.035);
+  padding: 1.75rem;
+}
+@media (min-width: 640px) {
+  .letter {
+    padding: 3rem;
+  }
+}
+.letter-text {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+  color: rgb(255 255 255 / 0.55);
+}
+@media (min-width: 640px) {
+  .letter-text {
+    font-size: 1.75rem;
+  }
+}
+.blank {
+  field-sizing: content;
+  max-width: calc(100% - 0.5em);
+  min-width: 3ch;
+  padding: 0 0.15em;
+  border: 0;
+  border-bottom: 2px solid rgb(255 255 255 / 0.22);
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  line-height: 1.3;
+  vertical-align: baseline;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+.blank::placeholder {
+  color: rgb(255 255 255 / 0.3);
+}
+.blank:hover {
+  border-color: rgb(255 255 255 / 0.5);
+}
+.blank:focus {
+  outline: none;
+  border-color: var(--color-coral);
+  background-color: rgb(255 255 255 / 0.06);
+}
+.blank:not(:placeholder-shown),
+.blank-select:valid {
+  border-color: rgb(255 255 255 / 0.6);
+}
+.blank-select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 1.05em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23ff5b37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    no-repeat right 0.1em center / 0.55em auto;
+}
+.blank-select:invalid {
+  color: rgb(255 255 255 / 0.3);
+}
+.blank-select option {
+  color: #fff;
+  background: var(--color-ink);
+}
+.blank-area {
+  display: block;
+  width: 100%;
+  min-height: 5.25rem;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0 0.5rem;
+  resize: none;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .blank-flash {
+    animation: blank-flash 1.4s ease-out;
+  }
+}
+@keyframes blank-flash {
+  0%,
+  30% {
+    background-color: rgb(255 91 55 / 0.28);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
